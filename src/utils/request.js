@@ -1,4 +1,5 @@
 import fetch from 'dva/fetch';
+import axios from 'axios';
 
 function parseJSON(response) {
   return response.json();
@@ -27,4 +28,21 @@ export default function request(url, options) {
     .then(parseJSON)
     .then(data => ({ data }))
     .catch(err => ({ err }));
+}
+
+function post(url, params, reqType) {
+  let method = reqType || 'get';
+  return new Promise((resolve, reject) => {
+    axios({
+      method: method,
+      url: url,
+      data: method === 'post' ? params : {},
+      params: method === 'get' ? params : {}
+    })
+      .then(response => response.data)
+      .then(data => {resolve(data)})
+      .catch(error => {
+        console.log(error)
+      })
+  })
 }
