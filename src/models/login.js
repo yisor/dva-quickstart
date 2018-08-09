@@ -15,10 +15,9 @@ export default {
   effects: {
     *login({ payload }, { call, put }) {  // eslint-disable-line
       const response = yield call(query);
-      const { users } = response.data;
-      console.log('Mock返回:', JSON.stringify(users))
+      console.log('Mock返回:', JSON.stringify(response))
       yield put({ type: 'save', payload });
-      if (users && users.length > 0) {
+      if (response) {
         yield put(routerRedux.push('/products'));
       }
     },

@@ -1,20 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Button } from 'antd';
+import { Button, TabBar } from 'antd-mobile';
 import styles from './IndexPage.css';
 
+class IndexPage extends Component {
 
-const IndexPage = ({ loginServer, user }) => {
-  return (
-    <div className={styles.app}>
-      <header className={styles.app_header} />
-      <div className={styles.main_content}>
-        111
+  render() {
+    const { tab, user, loginServer, children } = this.props;
+    return (
+      <div className={styles.app}>
+        <header className={styles.appHeader} />
+        <div className={styles.mainContent}>
+          {user.id}
+        </div>
+        <Button type="primary" onClick={loginServer}>Primary</Button>
+        <TabBar
+          unselectedTintColor="#949494"
+          barTintColor="white"
+          hidden={false}
+        >
+          <TabBar.Item
+            title="主页"
+            key="home"
+            icon={<div />}
+            selectedIcon={<div />}
+            onPress={loginServer}
+          />
+
+          <TabBar.Item
+            title="我的"
+            key="mine"
+            icon={<div />}
+            selectedIcon={<div />}
+            onPress={loginServer}
+          />
+        </TabBar>
+        {children}
       </div>
-      <Button type="primary" onClick={loginServer}>Primary</Button>
-    </div>
-  );
+    );
+  }
 }
+
 
 const mapStateToProps = (state) => ({
   user: state.user,

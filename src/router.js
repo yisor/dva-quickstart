@@ -1,14 +1,33 @@
 import React from 'react';
+import dynamic from 'dva/dynamic';
 import { Router, Route, Switch } from 'dva/router';
-import IndexPage from './routes/IndexPage';
-import Products from './routes/Products';
 
-function RouterConfig({ history }) {
+const routes = [
+  {
+    path: '/',
+    component: () => import('./routes/IndexPage'),
+  },
+  {
+    path: '/products',
+    component: () => import('./routes/Products'),
+  },
+];
+
+const RouterConfig = ({ history, app }) => {
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={IndexPage} />
-        <Route path="/products" exact component={Products} />
+        {
+          routes.map(({ path, ...dynamics }, key) => {
+            return (
+              <Route
+                key={key}
+                path={path}
+                exact
+                component={(dynamic)({ app, ...dynamics })} />
+            );
+          })
+        }
       </Switch>
     </Router>
   );
