@@ -4,8 +4,19 @@ export function query() {
   return request('/api/users');
 }
 
+/**
+ * 登录
+ * @param {*} params 
+ */
 export function login(params) {
   return request('/api/login', params, 'post');
+}
+
+/**
+ * 登出
+ */
+export function logout() {
+  return request('/api/logout');
 }
 
 /**
