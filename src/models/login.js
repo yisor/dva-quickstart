@@ -1,5 +1,5 @@
 import { routerRedux } from 'dva/router';
-import { query } from '../services/user';
+import { login } from '../services/app';
 
 export default {
 
@@ -14,11 +14,12 @@ export default {
 
   effects: {
     *login({ payload }, { call, put }) {  // eslint-disable-line
-      const response = yield call(query);
+      const response = yield call(login);
       console.log('Mock返回:', JSON.stringify(response))
       yield put({ type: 'save', payload });
       if (response) {
-        yield put(routerRedux.push('/products'));
+        yield put({ type: 'price/save', response });
+        yield put(routerRedux.push('/price'));
       }
     },
   },

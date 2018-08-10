@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Button, TabBar } from 'antd-mobile';
+import { TabBar } from 'antd-mobile';
 import styles from './IndexPage.css';
 
 class IndexPage extends Component {
 
   render() {
-    const { tab, user, loginServer, children } = this.props;
+    const { user, children } = this.props;
     return (
       <div className={styles.app}>
         <header className={styles.appHeader} />
         <div className={styles.mainContent}>
           {user.id}
         </div>
-        <Button type="primary" onClick={loginServer}>Primary</Button>
+
         <TabBar
           unselectedTintColor="#949494"
           barTintColor="white"
@@ -24,7 +24,6 @@ class IndexPage extends Component {
             key="home"
             icon={<div />}
             selectedIcon={<div />}
-            onPress={loginServer}
           />
 
           <TabBar.Item
@@ -32,7 +31,6 @@ class IndexPage extends Component {
             key="mine"
             icon={<div />}
             selectedIcon={<div />}
-            onPress={loginServer}
           />
         </TabBar>
         {children}

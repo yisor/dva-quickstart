@@ -10,8 +10,7 @@ function checkStatus(response) {
   throw error;
 }
 
-export default function request(url, params, reqType) {
-  let method = reqType || 'get';
+export default function request(url, params, method = 'get') {
   return new Promise((resolve, reject) => {
     axios({
       method: method,

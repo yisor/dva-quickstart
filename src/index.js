@@ -16,7 +16,7 @@ app.use(createLoading());
 
 // 3. Model
 app.model(require('./models/login').default);
-app.model(require('./models/products').default);
+app.model(require('./models/price').default);
 
 // 4. Router
 app.router(require('./router').default);

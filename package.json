@@ -11,8 +11,11 @@
     "antd-mobile": "^2.2.3",
     "axios": "^0.18.0",
     "babel-plugin-import": "^1.8.0",
+    "dayjs": "^1.7.4",
     "dva": "^2.1.0",
     "dva-loading": "^2.0.4",
+    "md5": "^2.2.1",
+    "prop-types": "^15.6.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
