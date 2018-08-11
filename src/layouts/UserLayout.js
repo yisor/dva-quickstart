@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import { TabBar } from 'antd-mobile';
+import { routerRedux } from 'dva/router';
 import styles from './UserLayout.css';
 
 class UserLayout extends Component {
@@ -54,8 +55,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  loginServer: (act) => {
-    dispatch({ type: 'user/login', payload: act });
+  changeUrl: (url) => {
+    dispatch(routerRedux.push(url));
   }
 })
 
