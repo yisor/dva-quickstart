@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { TabBar } from 'antd-mobile';
 import { routerRedux } from 'dva/router';
+import { TabBar } from 'antd-mobile';
 import styles from './UserLayout.css';
 
 class UserLayout extends Component {
   render() {
-    const { children } = this.props;
+    const { children, changeUrl } = this.props;
     return (
       <div className={styles.app}>
         {children}
@@ -27,6 +27,7 @@ class UserLayout extends Component {
               key="price"
               icon={<div />}
               selectedIcon={<div />}
+              onPress={() => { changeUrl('/') }}
             />
 
             <TabBar.Item
@@ -41,6 +42,7 @@ class UserLayout extends Component {
               key="mine"
               icon={<div />}
               selectedIcon={<div />}
+              onPress={() => { changeUrl('/mine') }}
             />
           </TabBar>
         </div>
@@ -50,9 +52,7 @@ class UserLayout extends Component {
 }
 
 
-const mapStateToProps = (state) => ({
-  user: state.user,
-})
+const mapStateToProps = (state) => ({})
 
 const mapDispatchToProps = (dispatch) => ({
   changeUrl: (url) => {
