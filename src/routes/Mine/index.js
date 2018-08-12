@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { injectIntl } from 'react-intl';
 import styles from './MinePage.css';
 
 class MinePage extends Component {
@@ -8,10 +9,11 @@ class MinePage extends Component {
         <header className={styles.appHeader} />
         <div className={styles.mainContent}>
           我的
+          {this.props.intl.formatMessage({id: 'intl.name'},{name: 'dva'})}
         </div>
       </div>
     );
   }
 }
 
-export default MinePage;
+export default injectIntl(MinePage);

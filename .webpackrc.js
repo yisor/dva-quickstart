@@ -17,6 +17,7 @@ export default {
     utils: resolve(__dirname, "./src/utils"),
     services: resolve(__dirname, "./src/services"),
     models: resolve(__dirname, "./src/models"),
-    routes: resolve(__dirname, "./src/routes")
+    routes: resolve(__dirname, "./src/routes"),
+    locales: resolve(__dirname, "./src/locales")
   }
 }

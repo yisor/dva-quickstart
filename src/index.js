@@ -1,7 +1,10 @@
 import dva from 'dva';
+import ReactDOM from 'react-dom';
 import createLoading from 'dva-loading';
 import { browserHistory } from 'dva/router';
+import { IntlProvider, addLocaleData } from 'react-intl';
 import './index.css';
+import { TranslatUtil } from 'utils';
 
 // 1. Initialize
 const app = dva({
@@ -10,7 +13,6 @@ const app = dva({
 });
 
 // 2. Plugins
-// app.use({});
 app.use(createLoading());
 
 // 3. Model
@@ -21,4 +23,17 @@ app.model(require('./models/price').default);
 app.router(require('./router').default);
 
 // 5. Start
-app.start('#root');
+const App = app.start();
+
+const lang = TranslatUtil.getLocale('zh-CN');
+addLocaleData(lang.data);
+
+ReactDOM.render(
+  <IntlProvider
+    locale={lang.locale}
+    messages={lang.messages}
+  >
+    <App />
+  </IntlProvider>,
+  document.getElementById('root')
+);
