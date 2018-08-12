@@ -1,4 +1,5 @@
 export default {
-  'intl.hello': "hello",
-  'intl.name': 'my name is {name}'
+  'tab.price': "Price",
+  'tab.deal': "Deal",
+  'tab.mine': "User",
 }

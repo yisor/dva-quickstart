@@ -25,7 +25,7 @@ app.router(require('./router').default);
 // 5. Start
 const App = app.start();
 
-const lang = TranslatUtil.getLocale('zh-CN');
+const lang = TranslatUtil.getLocale('en-US');
 addLocaleData(lang.data);
 
 ReactDOM.render(

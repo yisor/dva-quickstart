@@ -1,4 +1,5 @@
 export default {
-  'intl.hello': "你好",
-  'intl.name': '我的名字是 {name}'
+  'tab.price': "行情",
+  'tab.deal': "交易",
+  'tab.mine': "我的",
 }

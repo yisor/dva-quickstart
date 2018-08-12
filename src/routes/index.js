@@ -4,7 +4,7 @@ const routes = [
     name: 'IndexPage',
     getComponent(nextState, cb) {
       require.ensure([], (require) => {
-        cb(null, require('./../layouts/UserLayout').default);
+        cb(null, require('./../layouts/AppLayout').default);
       });
     },
     indexRoute: {
